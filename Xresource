@@ -1,8 +1,10 @@
 ! English font  
+xterm.locale:true
 xterm*faceName: DroidSansMono Nerd Font:antialias=True:pixelsize=17
 ! Chinese font 
 xterm*faceNameDoublesize:Noto Sans CJK SC:antialias=True:pixelsize=17
-xterm*locale:zh_CN.UTF-8
+xterm.utf8: true
+! xterm*locale:zh_CN.UTF-8
 
 XTerm*vt100.foreground: gray90
 XTerm*vt100.background: #446666
