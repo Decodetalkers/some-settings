@@ -8,7 +8,7 @@ export ZSH="/home/cht/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="fox"
+ZSH_THEME="fox" # set by `omz`
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -45,8 +45,9 @@ ZSH_THEME="fox"
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# Caution: this setting can cause issues with multiline prompts (zsh 5.7.1 and newer seem to work)
-# See https://github.com/ohmyzsh/ohmyzsh/issues/5765
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
@@ -70,11 +71,11 @@ ZSH_THEME="fox"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git rustup cargo history-substring-search zsh-syntax-highlighting zsh-autosuggestions pyenv npm dotnet flutter gh)
 
 source $ZSH/oh-my-zsh.sh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -102,46 +103,25 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ff00ff,bg=cyan,bold,underline"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
- eval "$(pyenv init --path)"
- eval "$(pyenv init -)"
-fi
+eval "$(pyenv init --path)"
 eval "$(pyenv virtualenv-init -)"
-#export http_proxy=http://127.0.0.1:8889
-#export https_proxy=http://127.0.0.1:8889
-source "$HOME/.cargo/env"
-export PATH=/usr/local/go/bin:$HOME/node/bin:$HOME/clangd/bin:$HOME/clang/bin:$HOME/flutter/bin:$HOME/.local/bin:$PATH
-# export PATH=/usr/local/go/bin:$HOME/node/bin:$HOME/clangd/bin:$HOME/flutter/bin:$HOME/.local/bin:$PATH
-export no_proxy=127.0.0.1,$no_proxy
-# export GTK_IM_MODULE=fcitx
-# export QT_IM_MODULE=fcitx
-# export XMODIFIERS="@im=fcitx"
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/cht/.sdkman"
-[[ -s "/home/cht/.sdkman/bin/sdkman-init.sh" ]] && source "/home/cht/.sdkman/bin/sdkman-init.sh"
-export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
-export PATH=$HOME/R/bin:$HOME/CMake/bin:$PATH
-export R_LIBS=$HOME/.R_package
-export APP_HOME=$SDKMAN_DIR/candidates/kotlin/current/
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-#export JAVA_HOME="$HOME/.jenv/versions/`jenv version-name`"
-#export JRE_HOME="$HOME/.jenv/versions/`jenv version-name`/jre"
-#export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
-export PATH=`go env GOPATH`/bin:$PATH
-export PATH="$HOME/.rbenv/bin:$PATH"
-export PATH="$HOME/bashtop:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/Nim/bin:$PATH"
-export PATH=$HOME/Android/Sdk/platform-tools:$PATH
-# tabtab source for electron-forge package
-# uninstall by removing these lines or running `tabtab uninstall electron-forge`
-#[[ -f /home/cht/node/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh ]] && . /home/cht/node/lib/node_modules/electron-forge/node_modules/tabtab/.completions/electron-forge.zsh
-eval $(thefuck --alias)
-eval $(opam env)
-export ANDROID=$HOME/Android/Sdk/tools
 npm config set prefix $HOME/.npm-global
-export PATH=$ANDROID:$ANDROID/bin:$PATH
-export PATH=$HOME/.npm-global/bin:$PATH
-export PATH=$HOME/git/gcc/output/bin:$PATH
+export PATH=/home/cht/.npm-global/bin:$PATH
+export PATH=/home/cht/Flutter/bin:$PATH
+export PATH=/home/cht/.cargo/bin:$PATH
+export PATH=/home/cht/.local/bin:$PATH
+#
+#export CHROME_EXECUTABLE=`which chromium`
+export PATH=/home/cht/Android/Sdk/cmdline-tools/latest/bin:$PATH
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+export PATH=/home/cht/go/bin:$PATH
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+#export SDKMAN_DIR="$HOME/.sdkman"
+#[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+eval $(opam env --switch=default)
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+alias ls=exa
+alias la="ls -la"
+#export RUST_SRC_PATH=$(rustc --print sysroot)/lib/rustlib/src/rust/library/
