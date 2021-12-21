@@ -16,24 +16,25 @@ font:
     normal:
     # family: Hack
     # family: "Sarasa Mono SC"
-        family: "DroidSansMono Nerd Font Mono"  #目前的版本不支持连字
+        family: "Hack Nerd Font Mono"  #目前的版本不支持连字
         # 字体风格
         style: Regular
 
   # 粗体
     bold:
-        family: "Hack"
+        family: "Hack Nerd Font Mono" 
         style: Bold
 
   # 斜体
     italic:
-        family: "Hack"
+        family: "Hack Nerd Font Mono"
         style: Italic
 
   # 斜粗体
-  # bold_italic:
-    # family: monospace
-    # style: Bold Italic
+    bold_italic:
+        family: "Hack Nerd Font Mono"
+        style: Bold Italic
+    
     size : 15
         #family: Hack
 
