@@ -1,12 +1,12 @@
 # 原来tabspaces是8
-env:  
-    # TERM variable
-    #
-    # This value is used to set the `$TERM` environment variable for
-    # each instance of Alacritty. If it is not present, alacritty will
-    # check the local terminfo database and use `alacritty` if it is
-    # available, otherwise `xterm-256color` is used.
-    TERM: xterm-256color
+#env:  
+#    # TERM variable
+#    #
+#    # This value is used to set the `$TERM` environment variable for
+#    # each instance of Alacritty. If it is not present, alacritty will
+#    # check the local terminfo database and use `alacritty` if it is
+#    # available, otherwise `xterm-256color` is used.
+#    TERM: alacritty
 
 tabspaces: 4
 # 字体使用Soure Code Pro
@@ -16,7 +16,7 @@ font:
     normal:
     # family: Hack
     # family: "Sarasa Mono SC"
-        family: "Hack"  #目前的版本不支持连字
+        family: "DroidSansMono Nerd Font Mono"  #目前的版本不支持连字
         # 字体风格
         style: Regular
 
