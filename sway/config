@@ -10,6 +10,8 @@ exec mako
 exec nm-applet --indicator
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+seat seat0 xcursor_theme "breeze_cursors"
+#exec_always gsettings set org.gnome.desktop.interface cursor-theme "Capitaine Cursors"
 xwayland enabled
 
 output eDP-1 scale 1
@@ -56,10 +58,10 @@ bindsym XF86MonBrightnessDown exec sudo light -U 10
 #
 # Example configuration:
 #
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
+exec swayidle -w \
+         timeout 300 'swaylock -i ~/.config/sway/backgrounds/lingmeng.jpg -f -c 000000  --effect-blur 7x5 ' \
+         timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -i ~/.config/sway/backgrounds/lingmeng.jpg -f -c 000000  --effect-blur 7x5 '
 #
 # This will lock your screen after 300 seconds of inactivity, then turn off
 # your displays after another 300 seconds, and turn your screens back on when
