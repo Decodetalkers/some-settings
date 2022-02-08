@@ -1,0 +1,6 @@
+[submodule "sway-configs"]
+	path = sway-configs
+	url = git@github.com:chen244/sway-configs.git
+[submodule "nvim.dot"]
+	path = nvim.dot
+	url = git@github.com:chen244/nvim.dot.git
